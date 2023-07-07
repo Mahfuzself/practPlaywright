@@ -71,7 +71,7 @@ const config: PlaywrightTestConfig = {
     screenshot :'only-on-failure',
     viewport: { width: 1700, height: 920 },
     ignoreHTTPSErrors: true,
-    // permissions: ["camera"],
+    //  permissions: ["camera"],
 
 
     // actionTimeout: 2 * 60 * 1000,

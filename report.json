@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "totalTime": 60384.75800001621
+      "totalTime": 18645.530000030994
     },
     "preserveOutput": "always",
     "reporter": [
@@ -68,6 +68,78 @@
           "tests": [
             {
               "timeout": 300000,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-07-07T06:03:37.940Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bb9eb754c57c133117cb-24647ffe36afac9b6a87",
+          "file": "001login.test.ts",
+          "line": 4,
+          "column": 6
+        },
+        {
+          "title": "001Login  -> 01 Validate empty password allert without input password field",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [
+                {
+                  "type": "skip"
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2023-07-07T06:03:37.941Z",
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "bb9eb754c57c133117cb-50a6bd1030f8a0808ae3",
+          "file": "001login.test.ts",
+          "line": 10,
+          "column": 6
+        },
+        {
+          "title": "001Login -> 02 Validate empty username alert without input username field",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "",
@@ -76,21 +148,21 @@
                 {
                   "workerIndex": 0,
                   "status": "passed",
-                  "duration": 59718,
+                  "duration": 17936,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2023-07-06T10:32:03.267Z",
+                  "startTime": "2023-07-07T06:03:38.289Z",
                   "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "bb9eb754c57c133117cb-24647ffe36afac9b6a87",
+          "id": "bb9eb754c57c133117cb-44e623c27dc2d95a0270",
           "file": "001login.test.ts",
-          "line": 4,
+          "line": 19,
           "column": 5
         }
       ]

@@ -7,16 +7,27 @@ export default class LoginPage {
     }
     private LoginPage_Elements  ={
         email : '//input[@placeholder="Email/Username"]',
+        submittBtn: '//button[text()=" Submit "]',
+        PasswordEmptyIcon: "//i[contains(@class,'icon-warning-o text-danger')]",
+        EmptyPasswordText:"//div[text()=' Password cannot be empty. ']",
+        EmptyusernameIcon:"//i[contains(@class,'icon-warning-o text-danger')]",
+        EmptyUsernameText:"//div[text()=' Email address cannot be empty. ']",
+    }
+    async inputusernamefield(uname : string){
+        await this.enterEmail(uname);
+    }
+    async inputpasswordfield(password : string){
+        await this.enterEmail(password);
     }
     async login(username: string, password: string) {
         await this.enterEmail(username);
         await this.enterLoginPassword(password);
-        await this.clickLoginBtn();
+        await this.clickSubmittBtn();
     }
     async loginNegative(invalidusername: string, invalidpassword: string) {
         await this.enterEmail(invalidusername);
         await this.enterLoginPassword(invalidpassword);
-        await this.clickLoginBtn();
+        await this.clickSubmittBtn();
     }
     async enterEmail(emailaddress: string) {
         await this.page.locator(this.LoginPage_Elements.email).type(emailaddress);
@@ -45,7 +56,7 @@ export default class LoginPage {
         expect(ele).toContainText("Ok")
         await ele.click()
     }
-    async clickLoginBtn() {
+    async clickSubmittBtn() {
         await Promise.all([
             this.page.waitForNavigation,
             // this.page.click("button:has-text('Login')"),
@@ -81,4 +92,36 @@ export default class LoginPage {
         expect(ele).toBeVisible()
         await ele.click()
     }
+    async invalidusernameformat(){
+        await this.page.locator(this.LoginPage_Elements.email).fill("  ")
+    }
+    async verifyEmpltyPassword_Alert(){
+         const ele = await this.page.locator(this.LoginPage_Elements.EmptyPasswordText)
+         if(await ele.isVisible()){
+            await expect(ele).toContainText("Password cannot be empty.")
+         }
+
+    }
+    async clickEmptyPasswordIcon(){
+        const ele = await this.page.locator(this.LoginPage_Elements.PasswordEmptyIcon)
+        if(await ele.isVisible()){
+           await ele.click()
+        }
+
+   }
+   async clickEmptyUsernameIcon(){
+    const ele = await this.page.locator(this.LoginPage_Elements.EmptyusernameIcon)
+    if(await ele.isVisible()){
+       await ele.click()
+    }
+
+}
+async verifyEmptyUsername_Alert(){
+    const ele = await this.page.locator(this.LoginPage_Elements.EmptyUsernameText)
+    if(await ele.isVisible()){
+       await expect(ele).toContainText("Email address cannot be empty.")
+    }
+
+}
+ 
 }
