@@ -12,6 +12,7 @@ export default class LoginPage {
         EmptyPasswordText:"//div[text()=' Password cannot be empty. ']",
         EmptyusernameIcon:"//i[contains(@class,'icon-warning-o text-danger')]",
         EmptyUsernameText:"//div[text()=' Email address cannot be empty. ']",
+        InvalidUsernameAlert:"//div[text()=' Email address is not a valid email. ']",
     }
     async inputusernamefield(uname : string){
         await this.enterEmail(uname);
@@ -23,6 +24,7 @@ export default class LoginPage {
         await this.enterEmail(username);
         await this.enterLoginPassword(password);
         await this.clickSubmittBtn();
+        await this.page.waitForTimeout(15000)
     }
     async loginNegative(invalidusername: string, invalidpassword: string) {
         await this.enterEmail(invalidusername);
@@ -93,7 +95,7 @@ export default class LoginPage {
         await ele.click()
     }
     async invalidusernameformat(){
-        await this.page.locator(this.LoginPage_Elements.email).fill("  ")
+        await this.page.locator(this.LoginPage_Elements.email).fill("qa_automation")
     }
     async verifyEmpltyPassword_Alert(){
          const ele = await this.page.locator(this.LoginPage_Elements.EmptyPasswordText)
@@ -120,6 +122,13 @@ async verifyEmptyUsername_Alert(){
     const ele = await this.page.locator(this.LoginPage_Elements.EmptyUsernameText)
     if(await ele.isVisible()){
        await expect(ele).toContainText("Email address cannot be empty.")
+    }
+
+}
+async verifyInvalaidUsernameFormat_Alert(){
+    const ele = await this.page.locator(this.LoginPage_Elements.InvalidUsernameAlert)
+    if(await ele.isVisible()){
+       await expect(ele).toContainText("Email address is not a valid email.")
     }
 
 }
