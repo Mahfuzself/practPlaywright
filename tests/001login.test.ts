@@ -1,13 +1,13 @@
 import test, { expect } from "@fixtures/basepages";
 import * as data from "testData/login.cred.json"
 //import LoginPage from "pages/loginPage/Login.page";
-test.skip("Login test",async({page,loginPage})=>{
+test("Login test",async({page,loginPage})=>{
     // await page.goto('/admin/#/sign-in')
     await page.goto("/login")
     await loginPage.login(data.username2, data.password2)
     await page.waitForTimeout(3000)
 })
-test.skip("001Login  -> 01 Validate empty password allert without input password field",async({page,loginPage})=>{
+test("001Login  -> 01 Validate empty password allert without input password field",async({page,loginPage})=>{
     // await page.goto('/admin/#/sign-in')
     await page.goto("/login")
     await loginPage.inputusernamefield(data.validusername)
